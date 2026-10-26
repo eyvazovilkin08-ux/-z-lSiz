@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ÖzəlSiz – Uşaq sosial xidməti üzrə onlayn məsləhət</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#17324d;--sea:#1e7f7a;--mint:#e3f3ef;--sun:#f4b73f;--bg:#f7fbfa;--card:#fff;--line:#cfe3de;--mut:#587083;--err:#b3382c}
+*{box-sizing:border-box}
+body{margin:0;font-family:Nunito,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+header{background:var(--ink);color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.logo{font-size:1.7rem;font-weight:800;letter-spacing:.2px}
+.logo b{color:var(--sun)}
+.logo small{display:block;font-size:.72rem;font-weight:400;opacity:.8}
+#who{font-size:.9rem;display:flex;gap:10px;align-items:center}
+#who button{background:transparent;color:#fff;border:1px solid #ffffff80;border-radius:20px;padding:4px 12px;cursor:pointer}
+.steps{display:flex;gap:6px;overflow-x:auto;padding:12px 20px;background:var(--mint);border-bottom:1px solid var(--line);list-style:none;margin:0}
+.steps li{flex:0 0 auto;font-size:.82rem;padding:5px 12px;border-radius:20px;background:#fff;border:1px solid var(--line);color:var(--mut)}
+.steps li.on{background:var(--sea);color:#fff;border-color:var(--sea);font-weight:800}
+.steps li.done{background:var(--ink);color:#fff;border-color:var(--ink)}
+main{max-width:920px;margin:0 auto;padding:24px 18px 60px}
+h1{font-size:1.9rem;margin:.2em 0 .3em;line-height:1.2}
+h2{font-size:1.35rem;margin:1.2em 0 .5em}
+p.lead{color:var(--mut);max-width:62ch;margin-top:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.opt{all:unset;box-sizing:border-box;cursor:pointer;background:#fff;border:2px solid var(--line);border-radius:12px;padding:14px;display:block}
+.opt:hover{border-color:var(--sea)}
+.opt:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.opt.sel{border-color:var(--sea);background:var(--mint)}
+.opt strong{display:block}.opt span{font-size:.85rem;color:var(--mut)}
+.btn{background:var(--sea);color:#fff;border:0;border-radius:10px;padding:11px 20px;font:inherit;font-weight:800;cursor:pointer}
+.btn:hover{background:#17625e}
+.btn.alt{background:#fff;color:var(--ink);border:2px solid var(--ink)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
+label{display:block;font-weight:600;margin:10px 0 4px}
+input,select,textarea{width:100%;font:inherit;padding:10px;border:1px solid #9bb8b1;border-radius:8px;background:#fff}
+.tabs{display:flex;gap:8px;margin-bottom:14px}
+.tabs button{flex:1;padding:10px;border:2px solid var(--line);background:#fff;border-radius:10px;font:inherit;font-weight:800;cursor:pointer}
+.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.id-btn{display:flex;align-items:center;gap:10px;width:100%;padding:12px;margin-top:8px;border-radius:10px;border:2px solid var(--ink);background:#fff;font:inherit;font-weight:800;cursor:pointer;text-align:left}
+.id-btn:hover{background:var(--mint)}
+.id-btn i{font-style:normal;background:var(--ink);color:#fff;border-radius:8px;padding:2px 8px;font-size:.8rem}
+.id-btn.on{background:var(--mint);border-color:var(--sea)}
+.msg{padding:10px 14px;border-radius:10px;margin-top:12px;background:#fff6e0;border:1px solid var(--sun)}
+.msg.err{background:#fdeae7;border-color:var(--err);color:var(--err)}
+.chat{height:300px;overflow-y:auto;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px}
+.b{max-width:80%;padding:8px 12px;border-radius:14px;font-size:.93rem}
+.b.bot{background:var(--mint);align-self:flex-start}
+.b.me{background:var(--ink);color:#fff;align-self:flex-end}
+.chatin{display:flex;gap:8px;margin-top:8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+.chip{all:unset;cursor:pointer;padding:7px 14px;border-radius:20px;border:2px solid var(--line);background:#fff;font-size:.9rem}
+.chip:hover{border-color:var(--sea)}.chip.sel{background:var(--sea);color:#fff;border-color:var(--sea)}
+.stars{font-size:1.6rem;color:#c9d6d3;letter-spacing:2px}
+.stars button{all:unset;cursor:pointer}.stars button.on{color:var(--sun)}
+.rev{border-top:1px solid var(--line);padding:10px 0}
+.rev small{color:var(--mut)}
+.tag{display:inline-block;font-size:.75rem;background:var(--mint);border-radius:10px;padding:1px 9px;margin-right:6px}
+.video{background:var(--ink);color:#fff;border-radius:12px;min-height:200px;display:grid;place-items:center;text-align:center;padding:16px}
+.sos{margin-top:30px;font-size:.85rem;color:var(--mut)}
+.hide{display:none}
+footer{text-align:center;padding:24px;color:var(--mut);font-size:.82rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Özəl<b>Siz</b><small>Uşaq sosial xidməti üzrə onlayn məsləhət</small></div>
+  <div id="who"></div>
+</header>
+<ol class="steps" id="steps" aria-label="Mərhələlər"></ol>
+<main id="app" tabindex="-1"></main>
+<footer>ÖzəlSiz © 2026 · Bu, nümunə (prototip) versiyadır. Təcili hallarda 112 nömrəsinə zəng edin.</footer>
+
+<script>
+/* ============ MƏLUMAT ============ */
+const STEPS=["Giriş","Rol","Problem","Yardım","Müəssisə","Məsləhət","Rəylər"];
+const CATS={
+ "Sağlamlıq":["Autizm spektri pozuntusu","Serebral iflic","Down sindromu","Epilepsiya","Eşitmə pozuntusu","Görmə pozuntusu","Nitq və dil gecikməsi","Hiperaktivlik (DEHB)","Xroniki xəstəliklər (diabet, astma)","Genetik xəstəliklər"],
+ "Psixoloji":["Anksiyete və qorxular","Depressiv əhval","Davranış pozuntuları","Zorakılıq və travma","Yuxu problemləri","Təhsil və öyrənmə çətinliyi","Yaşıdlarla ünsiyyət problemi","Valideyn-uşaq münasibətləri","Ailədə itki və yas","İnternet və ekran asılılığı"]
+};
+const INST_CATS={
+ "Reabilitasiya mərkəzləri":["Sağlam Gələcək Reabilitasiya Mərkəzi","Uşaq Reabilitasiya və İnkişaf Mərkəzi"],
+ "Psixoloji dəstək mərkəzləri":["Ailə və Uşaq Psixoloji Dəstək Mərkəzi","Ümid Psixoloji Xidmət Mərkəzi"],
+ "Tibb müəssisələri":["Uşaq Nevrologiya Klinikası","Uşaq Psixiatriya və Neyroinkişaf Şöbəsi"],
+ "Sosial xidmət müəssisələri":["Uşaq Sosial Xidmət və Dəstək Mərkəzi","Ailəyə Dəstək Gündüz Mərkəzi"],
+ "İnklüziv təhsil mərkəzləri":["İnklüziv Təhsil Resurs Mərkəzi","Xüsusi Təhsil Dəstək Məktəbi"]
+};
+const TOPIC_TO_INST={"Sağlamlıq":["Tibb müəssisələri","Reabilitasiya mərkəzləri"],"Psixoloji":["Psixoloji dəstək mərkəzləri","Sosial xidmət müəssisələri"]};
+const EXPERTS=[["Psixoloq","Dr. Aynur Əliyeva"],["Uşaq nevroloqu","Dr. Rəşad Məmmədov"],["Loqoped","Səbinə Hüseynova"],["Sosial işçi","Elçin Quliyev"]];
+const ROLES=[["Həkim","Tibbi diaqnoz və müalicə üzrə mütəxəssis"],["Sosial işçi","Ailə və uşaq hüquqları üzrə dəstək"],["Valideyn","Uşağı üçün məsləhət axtaran valideyn"]];
+
+/* ============ GİZLİ BAZA (istifadəçilərə görünmür) ============
+ Real layihədə bu hissə server tərəfdə (SQL bazası, yalnız admin girişi ilə) olmalıdır.
+ Prototipdə brauzer yaddaşında saxlanır və səhifədə heç bir yerdə göstərilmir. */
+const DB={
+ get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},
+ set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+};
+function logView(item){ // hansı məlumata ən son kim baxıb: gün və saat
+ if(!S.user)return;
+ const t=DB.get("oz_audit",{});
+ t[item]={userId:S.user.id,role:S.user.role,at:new Date().toLocaleString("az-AZ",{dateStyle:"short",timeStyle:"medium"}),iso:new Date().toISOString()};
+ DB.set("oz_audit",t);
+}
+window.__adminAudit=()=>DB.get("oz_audit",{}); // yalnız inkişaf üçün; istifadəçi interfeysində yoxdur
+
+/* ============ VƏZİYYƏT ============ */
+const S={step:1,tab:"login",method:null,user:null,topic:null,cat:null,mode:null,instCat:null,inst:null,expert:null,channel:null,stars:0,msg:null};
+const $=s=>document.querySelector(s);
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function go(n){S.step=n;S.msg=null;render();$("#app").focus()}
+
+/* ============ İSTİFADƏÇİLƏR ============ */
+const users=()=>DB.get("oz_users",{});
+function authenticate(){
+ const fin=($("#fin")?.value||"").trim().toUpperCase(),name=($("#nm")?.value||"").trim();
+ if(!S.method){return flash("Əvvəlcə giriş vasitəsini (SİMA və ya mygov) seçin.",1)}
+ if(!/^[A-Z0-9]{7}$/.test(fin)){return flash("FİN 7 simvoldan ibarət olmalıdır.",1)}
+ const id=S.method+"-"+fin,all=users();
+ if(S.tab==="login"){
+  if(!all[id])return flash("Bu hesab tapılmadı. Yeni istifadəçisinizsə “Qeydiyyat” bölməsindən keçin.",1);
+  S.user=all[id];logView("giris");go(3); // artıq qeydiyyatlı: rol soruşulmur
+ }else{
+  if(!name)return flash("Ad və soyadı daxil edin.",1);
+  if(all[id])return flash("Bu hesab artıq qeydiyyatdan keçib. “Daxil ol” bölməsindən istifadə edin.",1);
+  S.user={id,name,role:null,method:S.method};S.pending=true;go(2); // yeni: rol seçimi
+ }
+}
+function chooseRole(r){
+ S.user.role=r;const all=users();all[S.user.id]=S.user;DB.set("oz_users",all);S.pending=false;logView("qeydiyyat");go(3);
+}
+function flash(t,err){S.msg={t,err};render()}
+function logout(){Object.assign(S,{step:1,user:null,method:null,topic:null,cat:null,mode:null,inst:null,instCat:null,expert:null,channel:null,msg:null,tab:"login"});render()}
+
+/* ============ ƏSAS RENDER ============ */
+function render(){
+ $("#steps").innerHTML=STEPS.map((s,i)=>`<li class="${i+1===S.step?"on":i+1<S.step?"done":""}">${i+1}. ${s}</li>`).join("");
+ $("#who").innerHTML=S.user?`<span>${esc(S.user.name)}${S.user.role?" · "+S.user.role:""}</span><button onclick="logout()">Çıxış</button>`:"";
+ const v=[null,v1,v2,v3,v4,v5,v6,v7][S.step];
+ $("#app").innerHTML=v()+(S.msg?`<div class="msg ${S.msg.err?"err":""}" role="alert">${S.msg.t}</div>`:"");
+ if(S.step===4&&S.mode==="bot")botInit();
+}
+
+/* 1 — Qeydiyyat və giriş */
+function v1(){return `<h1>Uşağınızın ehtiyacı üçün düzgün ünvanı tapın</h1>
+<p class="lead">ÖzəlSiz xüsusi qayğıya ehtiyacı olan uşaqlar üçün həkim, sosial işçi və valideynləri müəssisələr və mütəxəssislərlə birləşdirir.</p>
+<div class="card" style="max-width:520px">
+ <div class="tabs"><button class="${S.tab==="login"?"on":""}" onclick="S.tab='login';S.msg=null;render()">Daxil ol</button>
+ <button class="${S.tab==="reg"?"on":""}" onclick="S.tab='reg';S.msg=null;render()">Qeydiyyat</button></div>
+ <button class="id-btn ${S.method==="SİMA"?"on":""}" onclick="S.method='SİMA';render()"><i>SİMA</i> SİMA ilə ${S.tab==="login"?"daxil ol":"qeydiyyatdan keç"}</button>
+ <button class="id-btn ${S.method==="mygov"?"on":""}" onclick="S.method='mygov';render()"><i>mygov</i> mygov ilə ${S.tab==="login"?"daxil ol":"qeydiyyatdan keç"}</button>
+ ${S.tab==="reg"?`<label for="nm">Ad, soyad</label><input id="nm" autocomplete="name">`:""}
+ <label for="fin">FİN kod</label><input id="fin" maxlength="7" autocomplete="off" placeholder="7 simvol">
+ <div class="row"><button class="btn" onclick="authenticate()">${S.tab==="login"?"Daxil ol":"Davam et"}</button></div>
+ <p class="sos">Nümunə rejimdə SİMA və mygov təsdiqi simulyasiya olunur. Real versiyada dövlət sistemlərinin API-sinə qoşulur.</p>
+</div>`}
+
+/* 2 — Rol (yalnız yeni qeydiyyat) */
+function v2(){return `<h1>Siz kimsiniz?</h1><p class="lead">Bu seçim yalnız bir dəfə edilir. Növbəti girişlərdə soruşulmayacaq.</p>
+<div class="grid">${ROLES.map(r=>`<button class="opt" onclick="chooseRole('${r[0]}')"><strong>${r[0]}</strong><span>${r[1]}</span></button>`).join("")}</div>`}
+
+/* 3 — Problem kateqoriyaları */
+function v3(){return `<h1>Uşaqda hansı problem var?</h1><p class="lead">Ən yaxın mövzunu seçin. Dəqiq diaqnoz bilmirsinizsə, müşahidə etdiyiniz hala uyğun olanı seçin.</p>
+${Object.entries(CATS).map(([c,l])=>`<h2>${c} problemləri</h2><div class="chips">${l.map(x=>`<button class="chip ${S.topic===x?"sel":""}" onclick="S.topic='${x.replace(/'/g,"\\'")}';S.cat='${c}';logView('problem:'+S.topic);render()">${x}</button>`).join("")}</div>`).join("")}
+<div class="row"><button class="btn" ${S.topic?"":"disabled"} onclick="go(4)">Davam et</button></div>`}
+
+/* 4 — Bot və ya operator */
+function v4(){
+ if(!S.mode)return `<h1>Necə kömək edək?</h1><p class="lead">Seçilmiş mövzu: <b>${esc(S.topic)}</b></p>
+ <div class="grid"><button class="opt" onclick="S.mode='bot';render()"><strong>Çat-bot ilə danış</strong><span>Dərhal cavab, ilkin məlumat və müəssisə təklifləri</span></button>
+ <button class="opt" onclick="S.mode='op';render()"><strong>Operatora qoşul</strong><span>Canlı operator sizi müvafiq müəssisəyə yönləndirir</span></button></div>
+ <div class="row"><button class="btn alt" onclick="go(3)">Geri</button></div>`;
+ return `<h1>${S.mode==="bot"?"Çat-bot":"Operator"} · ${esc(S.topic)}</h1>
+ <div class="chat" id="chat"></div>
+ <div class="chatin"><input id="cin" placeholder="Mesajınızı yazın" onkeydown="if(event.key==='Enter')send()"><button class="btn" onclick="send()">Göndər</button></div>
+ <div class="row"><button class="btn" onclick="go(5)">Müəssisələrə keç</button><button class="btn alt" onclick="S.mode=null;render()">Geri</button></div>`;
+}
+function bub(t,w){const c=$("#chat");if(!c)return;c.insertAdjacentHTML("beforeend",`<div class="b ${w}">${esc(t)}</div>`);c.scrollTop=c.scrollHeight}
+function botInit(){
+ const who=S.mode==="bot"?"bot":"bot";
+ if(S.mode==="bot")bub(`Salam! Mən ÖzəlSiz köməkçisiyəm. “${S.topic}” mövzusu üzrə sualınızı yazın. Sizi uyğun müəssisələrə yönləndirə bilərəm.`,who);
+ else bub(`Operator qoşuldu. “${S.topic}” mövzusu üzrə vəziyyəti qısa təsvir edin, sizi uyğun müəssisəyə yönləndirək.`,who);
+}
+function send(){
+ const i=$("#cin"),t=i.value.trim();if(!t)return;bub(t,"me");i.value="";
+ const k=TOPIC_TO_INST[S.cat].join(" və ");
+ setTimeout(()=>bub(S.mode==="bot"
+  ?`Anladım. “${S.topic}” üzrə ilkin addım mütəxəssis qiymətləndirməsidir. Sizə ən uyğun müəssisə növləri: ${k}. “Müəssisələrə keç” düyməsi ilə davam edə bilərsiniz. Bot tibbi diaqnoz qoymur.`
+  :`Təşəkkür edirəm, qeyd etdim. Bu hal üçün ${k} uyğundur. “Müəssisələrə keç” düyməsi ilə siyahıya baxın.`,"bot"),500);
+}
+
+/* 5 — Müəssisə kateqoriyaları və seçimi */
+function v5(){
+ const rec=TOPIC_TO_INST[S.cat];
+ return `<h1>Müəssisə seçin</h1><p class="lead">“${esc(S.topic)}” üçün tövsiyə olunan növlər qeyd olunub.</p>
+ <div class="chips">${Object.keys(INST_CATS).map(c=>`<button class="chip ${S.instCat===c?"sel":""}" onclick="S.instCat='${c}';S.inst=null;render()">${c}${rec.includes(c)?" ★":""}</button>`).join("")}</div>
+ ${S.instCat?`<div class="grid">${INST_CATS[S.instCat].map(n=>`<button class="opt ${S.inst===n?"sel":""}" onclick="S.inst='${n}';logView('muessise:'+S.inst);render()"><strong>${n}</strong><span>${S.instCat}</span></button>`).join("")}</div>`:""}
+ <div class="row"><button class="btn" ${S.inst?"":"disabled"} onclick="go(6)">Mütəxəssislə məsləhətləş</button><button class="btn alt" onclick="go(4)">Geri</button></div>`;
+}
+
+/* 6 — Məsləhətləşmə (telefon, çat, video) */
+function v6(){
+ if(S.booked)return `<h1>Məsləhətləşmə təsdiqləndi</h1><div class="card"><p><b>${esc(S.inst)}</b><br>Mütəxəssis: ${esc(S.expert)}<br>Forma: ${S.channel} · ${esc(S.booked)}</p>
+ ${S.channel==="Video görüntü"?`<div class="video"><div>Video otaq hazırdır<br><small>Real versiyada WebRTC ilə qoşulur</small></div></div>`:S.channel==="Telefon"?`<p>Mütəxəssis göstərilən vaxtda sizə zəng edəcək.</p>`:`<div class="chat" id="chat"><div class="b bot">Mütəxəssis çata qoşulacaq. Sualınızı indidən yaza bilərsiniz.</div></div>`}</div>
+ <div class="row"><button class="btn" onclick="S.booked=null;go(7)">Rəy bildir</button></div>`;
+ return `<h1>Mütəxəssis və forma</h1><p class="lead">${esc(S.inst)}</p>
+ <div class="grid">${EXPERTS.map(e=>`<button class="opt ${S.expert===e[1]?"sel":""}" onclick="S.expert='${e[1]}';logView('mutexessis:'+S.expert);render()"><strong>${e[1]}</strong><span>${e[0]}</span></button>`).join("")}</div>
+ <h2>Əlaqə forması</h2><div class="chips">${["Telefon","Çat","Video görüntü"].map(c=>`<button class="chip ${S.channel===c?"sel":""}" onclick="S.channel='${c}';render()">${c}</button>`).join("")}</div>
+ <label for="dt">Tarix və saat</label><input type="datetime-local" id="dt" style="max-width:280px">
+ <div class="row"><button class="btn" onclick="book()">Təsdiqlə</button><button class="btn alt" onclick="go(5)">Geri</button></div>`;
+}
+function book(){
+ const d=$("#dt").value;
+ if(!S.expert||!S.channel||!d)return flash("Mütəxəssis, əlaqə forması və vaxt seçilməlidir.",1);
+ S.booked=new Date(d).toLocaleString("az-AZ",{dateStyle:"long",timeStyle:"short"});logView("mesvere:"+S.inst);S.msg=null;render();
+}
+
+/* 7 — Rəylər və dəyərləndirmələr */
+function v7(){
+ const inst=S.inst||"Ümumi";const all=DB.get("oz_reviews",[]).filter(r=>r.inst===inst);logView("reyler:"+inst);
+ const avg=all.length?(all.reduce((a,r)=>a+r.stars,0)/all.length).toFixed(1):"–";
+ return `<h1>Rəylər: ${esc(inst)}</h1><p class="lead">Orta qiymət: <b>${avg}</b> (${all.length} rəy). Rəylər istifadəçinin rolu ilə göstərilir, şəxsi məlumat açıqlanmır.</p>
+ <div class="card"><label>Qiymətləndirmə</label><div class="stars" role="radiogroup">${[1,2,3,4,5].map(n=>`<button class="${n<=S.stars?"on":""}" aria-label="${n} ulduz" onclick="S.stars=${n};render()">★</button>`).join("")}</div>
+ <label for="rv">Fikir və məsləhətiniz</label><textarea id="rv" rows="3" placeholder="Müəssisə ilə təcrübənizi bölüşün"></textarea>
+ <div class="row"><button class="btn" onclick="addRev()">Rəy göndər</button></div></div>
+ <h2>Digər istifadəçilərin rəyləri</h2>
+ ${all.length?all.slice().reverse().map(r=>`<div class="rev"><span class="tag">${r.role}</span><span style="color:var(--sun)">${"★".repeat(r.stars)}</span><p style="margin:4px 0">${esc(r.text)}</p><small>${r.at}</small></div>`).join(""):"<p>Hələ rəy yoxdur. İlk rəyi siz yazın.</p>"}
+ <div class="row"><button class="btn alt" onclick="S.inst=null;S.instCat=null;S.topic=null;S.mode=null;S.expert=null;S.channel=null;S.stars=0;go(3)">Yeni müraciət</button></div>`;
+}
+function addRev(){
+ const t=$("#rv").value.trim();
+ if(!S.stars||!t)return flash("Ulduz seçin və fikrinizi yazın.",1);
+ const a=DB.get("oz_reviews",[]);
+ a.push({inst:S.inst||"Ümumi",role:S.user.role,stars:S.stars,text:t,at:new Date().toLocaleDateString("az-AZ")});
+ DB.set("oz_reviews",a);S.stars=0;S.msg={t:"Rəyiniz əlavə olundu. Təşəkkür edirik."};render();
+}
+render();
+</script>
+</body>
+</html>
